@@ -88,12 +88,33 @@ void hastabel1(){
 
     HashtabelPut(t,d[2],"newdata2");
 
+    HashtabelPut(t,"key7","data7");
+
+    HashtabelPut(t,"key5","data7");
+
+    HashtabelPut(t,"key6","data7");
+
+    HashtabelPut(t,"key10","data10");
+
+    HashtabelPut(t,"key13","data13");
     printf("%s \n", HashtableGet(t,d[0]));
     printf("%s \n", HashtableGet(t,d[1]));
     printf("%s \n", HashtableGet(t,d[2]));
     printf("%s \n", HashtableGet(t,d[3]));
     printf("%s \n", HashtableGet(t,d[4]));
+    HashtableDEL(t,d[3]);
+    HashtableDEL(t,"key13");
 
+    HashtableDEL(t,"key7");
+
+    HashtableDEL(t,"key1");
+
+    HashtableDEL(t,"key3");
+
+    HashtableDEL(t,"key5");
+    HashtableDEL(t,"key10");
+    HashtableDEL(t,d[1]); HashtableDEL(t,d[2]);
+    printf("%s \n", HashtableGet(t,d[3]));
 
 }
 int main(int argl, char *argd[]) {

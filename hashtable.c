@@ -78,31 +78,37 @@ void * HashtableGet(HashTablef t, char * str)
 
 
 }
-void * HashtableDEL(HashTablef t, char * str){
+int  HashtableDEL(HashTablef t, char * str){
     int index = hashf(str);
     if(t->hasharr[index]==NULL) {
-        return NULL;
+        return 1;
     }
     itemp i =t->hasharr[index];
     if(strcmp(i->key,str)==0){
         itemp temp = t->hasharr[index];
         t->hasharr[index] = t->hasharr[index]->n;
-        free(temp);
+        free(temp);return 0;
     }
+    i =t->hasharr[index];
     itemp in = t->hasharr[index]->n;
-    while(i->n!=NULL && strcmp(in->key,str)!=0)
+    while(i->n!=NULL)
     {
+        if (in !=NULL) {
 
+            if (strcmp(in->key, str) == 0) {
+
+                i->n = in->n;
+                free(in);
+                break;
+            }
+        }
+
+        in = in->n;
         i = i->n;
-    }
-    if(strcmp(i->key,str)==0)
-    {
-
-        return i->d;
-
 
 
     }
-    else return NULL;
+
+     return NULL;
 
 }
