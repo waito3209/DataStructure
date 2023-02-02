@@ -17,31 +17,31 @@ StackLinklist EmptyStackLinklist(){
     t->active=0;
     return t;
 }
-void PushStackLinklist(StackLinklist data, int app){
+void StackLinklistPush(StackLinklist data, int app){
     if (data->active){
 
         if (data->n==NULL)data->n=EmptyStackLinklist();
-        PushStackLinklist(data->n,app);
+        StackLinklistPush(data->n, app);
     }else {data->val=app;data->active=1;}
 
 }
-void PushStackLinklistArr(StackLinklist data,int l, ...)
+void StackLinklistArrPush(StackLinklist data, int app, ...)
 {
     va_list valist;
-    va_start(valist,l);
+    va_start(valist, app);
 
-    for(int i=0;i<l;i++)
-    { PushStackLinklist(data, va_arg(valist,int ));}
+    for(int i=0; i < app; i++)
+    { StackLinklistPush(data, va_arg(valist, int));}
 
 
 
 }
-int PopStackLinklist(StackLinklist input) {
+int StackLinklistPop(StackLinklist input) {
     if (input->n != NULL)
     {
 
             if (input->n->active)
-                return PopStackLinklist(input->n);
+                return StackLinklistPop(input->n);
             else {
                 if(input->active)
                 {input->active = 0;

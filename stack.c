@@ -13,7 +13,7 @@ typedef struct stackd{
     stackp next;
 
 }stackd;
-stackp Empty(){
+stackp StackEmpty(){
    // printf("Emptying...\n");
     stackp temp = malloc(sizeof(stackd));
     temp->leng=0;
@@ -22,7 +22,7 @@ stackp Empty(){
 
 }
 
-void Push(stackp stackp1,int app)
+void StackPush(stackp stackp1, int app)
 {
     if (stackp1->leng< LEN )
 	{
@@ -33,17 +33,17 @@ void Push(stackp stackp1,int app)
 		if (stackp1->next == NULL)
 		{
 //		printf("init %d",app);
-		stackp1->next=Empty();
+		stackp1->next= StackEmpty();
 		}
-		Push(stackp1->next,app);
+        StackPush(stackp1->next, app);
 
 	}
 	stackp1->leng++;
 
 
 }
-int Pop(stackp stackp1){
-    if (!IsEmpty(stackp1))
+int StackPop(stackp stackp1){
+    if (!StackIsEmpty(stackp1))
     {
     int temp;
 	stackp1->leng--;
@@ -53,13 +53,13 @@ int Pop(stackp stackp1){
 
     }
 	else
-    {temp = Pop(stackp1->next);}
+    {temp = StackPop(stackp1->next);}
     return temp;
      }
     else 
 	return -9;
 }
-int IsEmpty(stackp stackp1){
+int StackIsEmpty(stackp stackp1){
 
     return ( stackp1->leng <1);
 
