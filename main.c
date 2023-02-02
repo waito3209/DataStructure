@@ -78,6 +78,22 @@ void Queue1(){
 
 void hastabel1(){
     HashTablef  t = EmptyHashtabel();
+    char d[5][5] = {"key1","key2","key3","key4","key5"};
+    HashtabelPut(t,d[0],"data0");
+    HashtabelPut(t,d[1],"data1");
+    HashtabelPut(t,d[2],"data2");
+
+    HashtabelPut(t,d[3],"data3");
+    HashtabelPut(t,d[1],"newdata1");
+
+    HashtabelPut(t,d[2],"newdata2");
+
+    printf("%s \n", HashtableGet(t,d[0]));
+    printf("%s \n", HashtableGet(t,d[1]));
+    printf("%s \n", HashtableGet(t,d[2]));
+    printf("%s \n", HashtableGet(t,d[3]));
+    printf("%s \n", HashtableGet(t,d[4]));
+
 
 }
 int main(int argl, char *argd[]) {
@@ -90,8 +106,7 @@ int main(int argl, char *argd[]) {
 
             printf("%s\n", argd[i]);
             if (!strcmp(argd[i], "t1")) { t1(); }
-            if (!strcmp(argd[i], "t2")) { t2(); }
-            if (!strcmp(argd[i], "stack1")) { stack1(); }
+           if (!strcmp(argd[i], "stack1")) { stack1(); }
 
             if (!strcmp(argd[i], "StackLinklist")) { StackLinklist1(); }
             if (!strcmp(argd[i], "Queue1")) { Queue1(); }
@@ -104,11 +119,11 @@ int main(int argl, char *argd[]) {
 //
 //        t1();
 //        t2();
-        stack1();
+//        stack1();
 //        StackLinklist1();
 //        Queue1();
 //
-//        hastabel1();
+        hastabel1();
 //        int a[]={1,2,3,4};
 //        int b[]={7,7,7,7};
 //        for(int i =0; i<100;i++){printf(" %d\n",a[i]);}
