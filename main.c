@@ -16,68 +16,68 @@ void t1() {
     printf("%c\n--------------\n", str[strlen(str) - 1]);
 }
 void stack1() {
-    stackp stackp1 = Empty();
-    for (int i = 0; i < 35; i++) { Push(stackp1, i); }
-    for (int i = 0; i < 34; i++) { printf("%d ", Pop(stackp1)); }
+    stackp stackp1 = StackEmpty();
+    for (int i = 0; i < 35; i++) { StackPush(stackp1, i); }
+    for (int i = 0; i < 34; i++) { printf("%d ", StackPop(stackp1)); }
 
-    for (int i = 0; i < 12; i++) { Push(stackp1, i); }
+    for (int i = 0; i < 12; i++) { StackPush(stackp1, i); }
 
-    for (int i = 0; i < 13; i++) { printf("%d ", Pop(stackp1)); }
+    for (int i = 0; i < 13; i++) { printf("%d ", StackPop(stackp1)); }
     printf("\n");
 
 }
 
 void StackLinklist1() {
     StackLinklist t = EmptyStackLinklist();
-//    for(int i = 0 ; i<4 ;i++){ PushStackLinklist(t,i);}
-//    for(int i =0	 ; i<3 ;i++){printf("%d \n", PopStackLinklist(t));}
-//    for(int i = 0 ; i<2 ;i++){ PushStackLinklist(t,i);}
+//    for(int i = 0 ; i<4 ;i++){ StackLinklistPush(t,i);}
+//    for(int i =0	 ; i<3 ;i++){printf("%d \n", StackLinklistPop(t));}
+//    for(int i = 0 ; i<2 ;i++){ StackLinklistPush(t,i);}
 //
-//    for(int i =0	 ; i<6 ;i++){printf("R2::%d  \n", PopStackLinklist(t));}
+//    for(int i =0	 ; i<6 ;i++){printf("R2::%d  \n", StackLinklistPop(t));}
 //
     if (1) {
 
-        PushStackLinklistArr(t, 3, 2, 3, 4);
-        printf("%d \n", PopStackLinklist(t));
-        printf("%d \n", PopStackLinklist(t));
-        printf("%d \n", PopStackLinklist(t));
-        PushStackLinklistArr(t, 6, 6, 5, 4, 3, 2, 1);
-        printf("%d \n", PopStackLinklist(t));
-        printf("%d \n", PopStackLinklist(t));
-        printf("%d \n", PopStackLinklist(t));
-        PushStackLinklist(t, 8);
-        PushStackLinklist(t, 7);
-        printf("%d \n", PopStackLinklist(t));
-        printf("%d \n", PopStackLinklist(t));
-        printf("%d \n", PopStackLinklist(t));
-        printf("%d \n", PopStackLinklist(t));
-        printf("%d \n", PopStackLinklist(t));
-        //printf("%d \n", PopStackLinklist(t));
+        StackLinklistArrPush(t, 3, 2, 3, 4);
+        printf("%d \n", StackLinklistPop(t));
+        printf("%d \n", StackLinklistPop(t));
+        printf("%d \n", StackLinklistPop(t));
+        StackLinklistArrPush(t, 6, 6, 5, 4, 3, 2, 1);
+        printf("%d \n", StackLinklistPop(t));
+        printf("%d \n", StackLinklistPop(t));
+        printf("%d \n", StackLinklistPop(t));
+        StackLinklistPush(t, 8);
+        StackLinklistPush(t, 7);
+        printf("%d \n", StackLinklistPop(t));
+        printf("%d \n", StackLinklistPop(t));
+        printf("%d \n", StackLinklistPop(t));
+        printf("%d \n", StackLinklistPop(t));
+        printf("%d \n", StackLinklistPop(t));
+        //printf("%d \n", StackLinklistPop(t));
     }
 
 }
 
 void Queue1(){
     queuep t = EmptyQueue();
-    printf("-----%d \n", LengthQueue(t));
-    Enqueuelist(t,5,1,2,3,4,5);
-    printf("-----%d \n", LengthQueue(t));
+    printf("-----%d \n", QueueLength(t));
+    QueueEnqueuelist(t, 5, 1, 2, 3, 4, 5);
+    printf("-----%d \n", QueueLength(t));
     for (int i = 0; i < 3; i++)
-    { printf("%d \n", Dequeue(t)); }
-    printf("-----%d \n", LengthQueue(t));
+    { printf("%d \n", QueueDequeue(t)); }
+    printf("-----%d \n", QueueLength(t));
     for (int i = 0; i < 30; i++)
-    { Enqueue(t,i); }
-    printf("-----%d \n", LengthQueue(t));
+    { QueueEnqueue(t, i); }
+    printf("-----%d \n", QueueLength(t));
     for (int i = 0; i < 32; i++)
-    { printf("%d \n", Dequeue(t)); }
+    { printf("%d \n", QueueDequeue(t)); }
 
-    printf("-----%d \n", LengthQueue(t));
+    printf("-----%d \n", QueueLength(t));
 
 
 }
 
 void hastabel1(){
-    HashTablef  t = EmptyHashtabel();
+    HashTablef  t = HashtabelEmpty();
     char d[5][5] = {"key1","key2","key3","key4","key5"};
     HashtabelPut(t,d[0],"data0");
     HashtabelPut(t,d[1],"data1");
@@ -104,13 +104,9 @@ void hastabel1(){
     printf("%s \n", HashtableGet(t,d[4]));
     HashtableDEL(t,d[3]);
     HashtableDEL(t,"key13");
-
     HashtableDEL(t,"key7");
-
     HashtableDEL(t,"key1");
-
     HashtableDEL(t,"key3");
-
     HashtableDEL(t,"key5");
     HashtableDEL(t,"key10");
     HashtableDEL(t,d[1]); HashtableDEL(t,d[2]);

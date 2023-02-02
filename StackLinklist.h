@@ -7,9 +7,9 @@
 #define REV_STACKLINKLIST_H
 typedef struct data * StackLinklist;
 StackLinklist EmptyStackLinklist();
-void PushStackLinklist(StackLinklist data, int app);
-void PushStackLinklistArr(StackLinklist data, int app,...);
+void StackLinklistPush(StackLinklist data, int app);
+void StackLinklistArrPush(StackLinklist data, int app, ...);
 
-int PopStackLinklist(StackLinklist input);
+int StackLinklistPop(StackLinklist input);
 int StackLinklistLength(StackLinklist input);
 #endif //REV_STACKLINKLIST_H

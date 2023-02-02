@@ -18,7 +18,7 @@ typedef struct table{
     item * hasharr[LEN];
 }table;
 typedef item * itemp;
-HashTablef EmptyHashtabel()
+HashTablef HashtabelEmpty()
 {
     HashTablef t = (HashTablef)malloc(sizeof(table));
     for(int i =0 ; i<LEN;i++)

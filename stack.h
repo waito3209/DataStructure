@@ -10,10 +10,10 @@
 
 
 typedef struct  stackd *stackp;
-stackp Empty();
-void Push(stackp stackp1,int app);
-int Pop(stackp stackp1);
-int IsEmpty(stackp stackp1);
+stackp StackEmpty();
+void StackPush(stackp stackp1, int app);
+int StackPop(stackp stackp1);
+int StackIsEmpty(stackp stackp1);
 int Depth(stackp stackp1);
 
 
