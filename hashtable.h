@@ -6,8 +6,9 @@
 #define REV_HASHTABLE_H
 typedef struct table * HashTablef;
 typedef struct item * itemp;
-HashTablef EmptyHashtabel();
+HashTablef HashtabelEmpty();
 void HashtabelPut(HashTablef t, char * str , void * app);
 void * HashtableGet(HashTablef t, char * str);
+int  HashtableDEL(HashTablef t, char * str);
 
 #endif //REV_HASHTABLE_H

@@ -8,11 +8,11 @@
 typedef  struct celld * cellp;
 typedef  struct queue * queuep;
 queuep EmptyQueue();
-void Enqueue(queuep t,int app);
-void Enqueuelist(queuep t ,int l , ...);
-int Dequeue(queuep t);
-int LengthQueue(queuep t);
-cellp Emptycell();
+void QueueEnqueue(queuep t, int app);
+void QueueEnqueuelist(queuep t , int l , ...);
+int QueueDequeue(queuep t);
+int QueueLength(queuep t);
+cellp CellEmpty();
 
 
 
