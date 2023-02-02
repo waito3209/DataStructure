@@ -104,13 +104,9 @@ void hastabel1(){
     printf("%s \n", HashtableGet(t,d[4]));
     HashtableDEL(t,d[3]);
     HashtableDEL(t,"key13");
-
     HashtableDEL(t,"key7");
-
     HashtableDEL(t,"key1");
-
     HashtableDEL(t,"key3");
-
     HashtableDEL(t,"key5");
     HashtableDEL(t,"key10");
     HashtableDEL(t,d[1]); HashtableDEL(t,d[2]);
