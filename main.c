@@ -113,6 +113,14 @@ void hastabel1(){
     printf("%s \n", HashtableGet(t,d[3]));
 
 }
+void linklist1(){
+    Li
+
+
+
+
+
+}
 int main(int argl, char *argd[]) {
 
 
