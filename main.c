@@ -3,6 +3,7 @@
 #include "stack.h"
 #include "StackLinklist.h"
 #include "queue.h"
+# include "LinkList.h"
 #include "hashtable.h"
 void t1() {
     printf("Hello, World!\n");
@@ -114,9 +115,17 @@ void hastabel1(){
 
 }
 void linklist1(){
-    Li
+    char d[6][10] = {"key0","key1","key2","key3","key4","key5"};
+    Linklistp t = LinkListEmpty();
 
+    LinklistAdd(t,-1,d[0]);
+    LinklistAdd(t,-1,d[1]);
+    LinklistAdd(t,-1,d[2]);
 
+    for(int i = 0; i<3;i++)
+    {
+        printf("%d : %s \n",i, LinklistGet(t,i) );
+    }
 
 
 
@@ -147,12 +156,11 @@ int main(int argl, char *argd[]) {
 //        stack1();
 //        StackLinklist1();
 //        Queue1();
-//
-        hastabel1();
+//hastabel1();
 //        int a[]={1,2,3,4};
 //        int b[]={7,7,7,7};
 //        for(int i =0; i<100;i++){printf(" %d\n",a[i]);}
-
+linklist1();
 
     }
 
