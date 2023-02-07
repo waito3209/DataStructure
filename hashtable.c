@@ -74,7 +74,7 @@ void * HashtableGet(HashTablef t, char * str)
     }
     if(strcmp(i->key,str)==0)
     {return i->d;}
-    else return NULL;
+    else return (void * )NULL;
 
 
 }
@@ -109,6 +109,6 @@ int  HashtableDEL(HashTablef t, char * str){
 
     }
 
-     return NULL;
+     return 0;
 
 }

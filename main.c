@@ -98,11 +98,11 @@ void hastabel1(){
     HashtabelPut(t,"key10","data10");
 
     HashtabelPut(t,"key13","data13");
-    printf("%s \n", HashtableGet(t,d[0]));
-    printf("%s \n", HashtableGet(t,d[1]));
-    printf("%s \n", HashtableGet(t,d[2]));
-    printf("%s \n", HashtableGet(t,d[3]));
-    printf("%s \n", HashtableGet(t,d[4]));
+    printf("%s \n",(char *) HashtableGet(t,d[0]));
+    printf("%s \n",(char *) HashtableGet(t,d[1]));
+    printf("%s \n",(char *) HashtableGet(t,d[2]));
+    printf("%s \n",(char *) HashtableGet(t,d[3]));
+    printf("%s \n",(char *) HashtableGet(t,d[4]));
     HashtableDEL(t,d[3]);
     HashtableDEL(t,"key13");
     HashtableDEL(t,"key7");
@@ -111,7 +111,7 @@ void hastabel1(){
     HashtableDEL(t,"key5");
     HashtableDEL(t,"key10");
     HashtableDEL(t,d[1]); HashtableDEL(t,d[2]);
-    printf("%s \n", HashtableGet(t,d[3]));
+    printf("%s \n",(char *) HashtableGet(t,d[3]));
 
 }
 void linklist1(){
