@@ -115,6 +115,7 @@ void hastabel1(){
 
 }
 void linklist1(){
+	printf("Link");
     char d[6][10] = {"key0","key1","key2","key3","key4","key5"};
     Linklistp t = LinkListEmpty();
 
@@ -124,8 +125,9 @@ void linklist1(){
 
     for(int i = 0; i<3;i++)
     {
-        printf("%d : %s \n",i, LinklistGet(t,i) );
+        printf("%d : %s \n",i, (( char * )LinklistGet(t,i)) );
     }
+    //TODO:
 
 
 
@@ -145,6 +147,7 @@ int main(int argl, char *argd[]) {
             if (!strcmp(argd[i], "StackLinklist")) { StackLinklist1(); }
             if (!strcmp(argd[i], "Queue1")) { Queue1(); }
             if (!strcmp(argd[i],"hastabel1")){hastabel1();}
+	    if (!strcmp(argd[i],"linklist1")){linklist1();}
             printf("\n%s-----------END\n", argd[i]);
 
         }

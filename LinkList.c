@@ -55,7 +55,7 @@ void * LinklistGet(Linklistp l, int index){
 int LinklistFind(Linklistp l, int index, void * data){
 
     for(Linklistnodep i; i->n!=NULL; i=i->n){
-        if (*i->d==*data){}
+      //  if (*(i->d)==*data){}
     }
 
 
