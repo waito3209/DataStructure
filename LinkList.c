@@ -40,7 +40,19 @@ void LinklistAdd(Linklistp l, int index, void * data ){
 
     }
 }
-void LinklistRemove(Linklistp l, int index, void * data);
+void LinklistRemove(Linklistp l, int index, void * data){
+    if (index < 0 || index > l->length){
+        LinklistRemove(l,l->length, data);
+        return;
+    }
+    if (index == 0) {
+        //Todo
+    }else{
+
+        Linklistnodep tempbefor = LinkListGetNode(l->first,index-1);
+        // Todo
+    }
+}
 void * LinklistGet(Linklistp l, int index){
 
     if (index >= l->length|| index <0 ){return NULL;}
