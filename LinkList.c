@@ -67,7 +67,12 @@ int LinklistFind(Linklistp l, void * data,int (*f)(void*,void* ) ){
         if (!f(data,i->d)){
             return c;
 
+<<<<<<< HEAD
         }
+=======
+    for(Linklistnodep i; i->n!=NULL; i=i->n){
+      //  if (*(i->d)==*data){}
+>>>>>>> refs/remotes/main/main
     }
     return -1;
 
