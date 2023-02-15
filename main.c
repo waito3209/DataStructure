@@ -129,18 +129,14 @@ void linklist1(){
     int (*tf)(void*,void* ) = &comparestr;
     for(int i = 0; i<3;i++)
     {
-<<<<<<< HEAD
         printf("%d : %s \n",i, LinklistGet(t,i) );
 
     }
     printf("%d\t\n", LinklistFind(t,"key2",tf));
 
     printf("%d\t\n", LinklistFind(t,"key",tf));
-=======
-        printf("%d : %s \n",i, (( char * )LinklistGet(t,i)) );
-    }
+
     //TODO:
->>>>>>> refs/remotes/main/main
 
 
 

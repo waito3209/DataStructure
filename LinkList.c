@@ -63,16 +63,11 @@ void * LinklistGet(Linklistp l, int index){
 }
 int LinklistFind(Linklistp l, void * data,int (*f)(void*,void* ) ){
     int c = 0;
-    for(Linklistnodep i = l->first; i!=NULL; i=i->n,c ++){
-        if (!f(data,i->d)){
+    for(Linklistnodep i = l->first; i!=NULL; i=i->n,c ++) {
+        if (!f(data, i->d)) {
             return c;
 
-<<<<<<< HEAD
         }
-=======
-    for(Linklistnodep i; i->n!=NULL; i=i->n){
-      //  if (*(i->d)==*data){}
->>>>>>> refs/remotes/main/main
     }
     return -1;
 
@@ -89,6 +84,5 @@ Linklistnodep LinklistnodeEmpty(){
     t->d=NULL;
     t->n=NULL;
     return t;
-};
-Linklistp CopyLinkList(Linklist l, int index);
-
+}
+Linklistp CopyLinkList(Linklist l, int index){return NULL;}
