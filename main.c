@@ -76,6 +76,10 @@ void Queue1(){
 
 
 }
+int comparestr(void* d1,void* d2)
+{   printf("%s \n%s \n---\n",d1,d2);
+    return strcmp(d1,d2);
+}
 
 void hastabel1(){
     HashTablef  t = HashtabelEmpty();
@@ -121,15 +125,20 @@ void linklist1(){
     LinklistAdd(t,-1,d[0]);
     LinklistAdd(t,-1,d[1]);
     LinklistAdd(t,-1,d[2]);
-
+    int (*tf)(void*,void* ) = &comparestr;
     for(int i = 0; i<3;i++)
     {
         printf("%d : %s \n",i, LinklistGet(t,i) );
+
     }
+    printf("%d\t\n", LinklistFind(t,"key2",tf));
+
+    printf("%d\t\n", LinklistFind(t,"key",tf));
 
 
 
 }
+
 int main(int argl, char *argd[]) {
 
 

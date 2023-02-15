@@ -23,8 +23,6 @@ void LinklistAdd(Linklistp l, int index, void * data ){
         LinklistAdd(l,l->length, data);
         return;
     }
-
-
     if (index == 0) {
         Linklistnodep t = LinklistnodeEmpty();
         t->n = l->first;
@@ -38,7 +36,6 @@ void LinklistAdd(Linklistp l, int index, void * data ){
         t->n=tempbefor->n;
         t->d=data;
         tempbefor->n=t;
-
         l->length++;
 
     }
@@ -52,12 +49,15 @@ void * LinklistGet(Linklistp l, int index){
 
     }
 }
-int LinklistFind(Linklistp l, int index, void * data){
+int LinklistFind(Linklistp l, void * data,int (*f)(void*,void* ) ){
+    int c = 0;
+    for(Linklistnodep i = l->first; i!=NULL; i=i->n,c ++){
+        if (!f(data,i->d)){
+            return c;
 
-    for(Linklistnodep i; i->n!=NULL; i=i->n){
-        if (*i->d==*data){}
+        }
     }
-
+    return -1;
 
 
 }

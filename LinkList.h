@@ -11,7 +11,7 @@ typedef Linklist * Linklistp;
 void LinklistAdd(Linklistp l, int index, void * data );
 void LinklistRemove(Linklistp l, int index, void * data);
 void * LinklistGet(Linklistp l, int index);
-int LinklistFind(Linklistp l, int index, void * data,int size;);
+int LinklistFind(Linklistp l, void * data,int (*f)(void*,void* ) );
 Linklistp LinkListEmpty();
 Linklistnodep LinklistnodeEmpty();
 Linklistp CopyLinkList(Linklist l, int index);
