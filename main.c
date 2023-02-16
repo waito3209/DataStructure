@@ -77,7 +77,8 @@ void Queue1(){
 
 }
 int comparestr(void* d1,void* d2)
-{   printf("%s \n%s \n---\n",d1,d2);
+{
+    //printf("%s \n%s \n---\n",d1,d2);
     return strcmp(d1,d2);
 }
 
@@ -119,15 +120,17 @@ void hastabel1(){
 
 }
 void linklist1(){
-	printf("Link");
+	printf("Link\n");
     char d[6][10] = {"key0","key1","key2","key3","key4","key5"};
     Linklistp t = LinkListEmpty();
 
     LinklistAdd(t,-1,d[0]);
     LinklistAdd(t,-1,d[1]);
     LinklistAdd(t,-1,d[2]);
+    LinklistAdd(t,-1,d[3]);
+    LinklistAdd(t,-1,d[4]);
     int (*tf)(void*,void* ) = &comparestr;
-    for(int i = 0; i<3;i++)
+    for(int i = 0; i<5;i++)
     {
         printf("%d : %s \n",i, LinklistGet(t,i) );
 
@@ -135,8 +138,19 @@ void linklist1(){
     printf("%d\t\n", LinklistFind(t,"key2",tf));
 
     printf("%d\t\n", LinklistFind(t,"key",tf));
+    printf("\n\n\n");
+    LinklistRemove(t, LinklistFind(t,"key5",tf));
+    for(int i = 0; i<4;i++)
+    {printf("%d : %s \n",i, LinklistGet(t,i) );}
+    printf("\n\n\n");
+    LinklistRemove(t, LinklistFind(t,"key0",tf));
+    for(int i = 0; i<3;i++)
+    {printf("%d : %s \n",i, LinklistGet(t,i) );}
+    printf("\n\n\n");
+    LinklistRemove(t, LinklistFind(t,"key2",tf));
+    for(int i = 0; i<2;i++)
+    {printf("%d : %s \n",i, LinklistGet(t,i) );}
 
-    //TODO:
 
 
 
@@ -169,7 +183,7 @@ int main(int argl, char *argd[]) {
 //        stack1();
 //        StackLinklist1();
 //        Queue1();
-//hastabel1();
+//        hastabel1();
 //        int a[]={1,2,3,4};
 //        int b[]={7,7,7,7};
 //        for(int i =0; i<100;i++){printf(" %d\n",a[i]);}

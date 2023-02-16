@@ -9,7 +9,7 @@ typedef Linklistnode * Linklistnodep ;
 typedef struct Linklist Linklist;
 typedef Linklist * Linklistp;
 void LinklistAdd(Linklistp l, int index, void * data );
-void LinklistRemove(Linklistp l, int index, void * data);// linklist index > len , del last
+void LinklistRemove(Linklistp l, int index);// linklist index > len , del last
 void * LinklistGet(Linklistp l, int index);
 int LinklistFind(Linklistp l, void * data,int (*f)(void*,void* ) );
 Linklistp LinkListEmpty();
