@@ -11,5 +11,7 @@ void StackLinklistPush(StackLinklist data, int app);
 void StackLinklistArrPush(StackLinklist data, int app, ...);
 
 int StackLinklistPop(StackLinklist input);
+
+int StackLinklistPeek(StackLinklist input);
 int StackLinklistLength(StackLinklist input);
 #endif //REV_STACKLINKLIST_H
