@@ -70,3 +70,10 @@ int StackLinklistLengthLow(StackLinklist input){
 int StackLinklistLength(StackLinklist input){
     StackLinklistLengthLow(input);
 };
+int StackLinklistPeek(StackLinklist input){
+    int t = StackLinklistPop(input);
+    StackLinklistPush(input,t);
+    return t;
+
+
+}

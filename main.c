@@ -5,6 +5,7 @@
 #include "queue.h"
 # include "LinkList.h"
 #include "hashtable.h"
+#include "List.h"
 void t1() {
     printf("Hello, World!\n");
     int a = 0;
@@ -42,7 +43,11 @@ void StackLinklist1() {
         printf("%d \n", StackLinklistPop(t));
         printf("%d \n", StackLinklistPop(t));
         printf("%d \n", StackLinklistPop(t));
+
         StackLinklistArrPush(t, 6, 6, 5, 4, 3, 2, 1);
+        printf("%d \n", StackLinklistPop(t));
+        printf("%d \n", StackLinklistPop(t));
+        printf("%d \n", StackLinklistPop(t));
         printf("%d \n", StackLinklistPop(t));
         printf("%d \n", StackLinklistPop(t));
         printf("%d \n", StackLinklistPop(t));
@@ -50,9 +55,7 @@ void StackLinklist1() {
         StackLinklistPush(t, 7);
         printf("%d \n", StackLinklistPop(t));
         printf("%d \n", StackLinklistPop(t));
-        printf("%d \n", StackLinklistPop(t));
-        printf("%d \n", StackLinklistPop(t));
-        printf("%d \n", StackLinklistPop(t));
+
         //printf("%d \n", StackLinklistPop(t));
     }
 
@@ -155,6 +158,152 @@ void linklist1(){
 
 
 }
+void list1(){
+    printf("List\n");
+    char d[6][10] = {"key0","key1","key2","key3","key4","key5"};
+
+    Listp t = Cons(d[0],EmptyList());
+
+
+
+}
+int search(int *a,int n,int key)
+{
+    int i;
+    for(i=0; i<n; i++)
+    {
+        if(a[i]==key)
+        {
+            return i;
+        }
+
+    }
+
+    return 0;
+
+}
+void Q219(){// Online C compiler to run C program online
+
+
+        // Write C code here
+        //int d[] = {1,3,5,7,2,6,4};
+        //int d[] = {6,5,4,8,7,9,3,2,1};
+        //int d[] = {4 ,11, 9, 12, 13, 10, 5, 7, 2, 6, 8, 3, 1};
+        int d[]= {3 ,4 ,2, 1, 5 ,6, 10 ,8 ,11 ,16 ,18, 9, 17 ,7, 13, 15, 12, 14};
+        int dlen = sizeof(d)/sizeof(int);
+        int input_stack = 1;
+        StackLinklist stack1 = EmptyStackLinklist();
+        StackLinklist stack2 = EmptyStackLinklist();
+        int LenSt1=0,LenSt2=0,Popindex1,Popindex2;
+        for(int di = 0 ; (di< dlen);di++) {
+            if (input_stack==d[di])
+            {printf("Finding %d getting %d Complete imed  \n",d[di],input_stack);
+                input_stack++;}
+            else if (input_stack<d[di]){
+                while (input_stack<d[di]) {
+                        printf("Finding %d  getting %d Storing  \n", d[di], input_stack);
+                        int input_stack_future_pos = search(d,dlen,input_stack);
+                        printf("    stack 1  {LEN : %d} peek : %d\n",LenSt1,LenSt1>0?StackLinklistPeek(stack1):-1);
+                        printf("    stack 2  {LEN : %d} peek : %d\n",LenSt2,LenSt2>0?StackLinklistPeek(stack2):-1);
+                        if (LenSt1 ==0 && LenSt2==0){
+                            //push stack 1
+                            printf("        Pushing stack 1 ; %d \n",input_stack);
+                            LenSt1++;
+                            StackLinklistPush(stack1,input_stack);
+                        }else if (LenSt1 !=0 &&LenSt2==0){
+                            // check can push stack1
+                            int st1_peek_future_pos = search(d,dlen,StackLinklistPeek(stack1));
+                            printf("        Checking stack1 stack1 futurepos  :%d \n",st1_peek_future_pos);
+                            if (input_stack_future_pos< st1_peek_future_pos){
+                                //push stack 1
+                                LenSt1++;
+                                StackLinklistPush(stack1,input_stack);
+                                printf("        Pushing stack1 \n");
+                            }else{
+                                //push stack 2
+                                LenSt2++;
+                                StackLinklistPush(stack2,input_stack);
+                                printf("        Pushing stack2 \n");
+                            }
+                        }else if (LenSt1 ==0 &&LenSt2!=0){
+                            int st2_peek_future_pos = search(d,dlen,StackLinklistPeek(stack2));
+                            printf("        Checking stack2 stack2 futurepos  :%d \n",st2_peek_future_pos);
+                            if (input_stack_future_pos< st2_peek_future_pos){
+                                //push stack 2
+                                LenSt2++;
+                                StackLinklistPush(stack2,input_stack);
+                                printf("        Pushing stack2 \n");
+
+                            }else{
+                                //push stack 1
+                                LenSt1++;
+                                StackLinklistPush(stack1,input_stack);
+                                printf("        Pushing stack1 \n");
+                            }
+
+                        }else if (LenSt1 !=0 &&LenSt2!=0){
+                            int st1_peek_future_pos = search(d,dlen,StackLinklistPeek(stack1));
+                            int st2_peek_future_pos = search(d,dlen,StackLinklistPeek(stack2));
+                            printf("        Checking stack1 stack1 futurepos  :%d \n",st1_peek_future_pos);
+                            printf("        Checking stack1 stack2 futurepos  :%d \n",st2_peek_future_pos);
+                            if ((input_stack_future_pos< st1_peek_future_pos)
+                            && (input_stack_future_pos< st2_peek_future_pos)){
+                                int diff_1= st1_peek_future_pos - input_stack;
+                                int diff_2= st2_peek_future_pos - input_stack;
+                                if (diff_1> diff_2){
+                                    LenSt1++;
+                                    StackLinklistPush(stack1,input_stack);
+                                    printf("        Pushing stack1 \n");
+                                }else{
+                                    LenSt2++;
+                                    StackLinklistPush(stack2,input_stack);
+                                    printf("        Pushing stack2 \n");
+                                }
+
+
+
+
+                            }else if  (input_stack_future_pos< st1_peek_future_pos){
+                                    //push stack 1
+                                    LenSt1++;
+                                    StackLinklistPush(stack1,input_stack);
+                                    printf("        Pushing stack1\n");
+                            }else if (input_stack_future_pos< st2_peek_future_pos){
+                                //push stack 2
+                                LenSt2++;
+                                StackLinklistPush(stack2,input_stack);
+                                printf("        Pushing stack2\n");
+
+                            }else{
+                                printf("[WARN][WARN][WARN][WARN][WARN][WARN][WARN][WARN]\n");
+                            }
+
+                        }
+                        input_stack++;
+
+
+                }
+                printf("Finding %d getting %d Complete imed  \n",d[di],input_stack);
+                input_stack++;
+
+
+            }else if((input_stack>d[di])){
+                printf("Finding %d  getting %d  >> finding in stack\n",d[di],input_stack);
+                if (LenSt1>0?StackLinklistPeek(stack1):-1 == input_stack){
+                    StackLinklistPop(stack1);
+                    LenSt1--;
+                    printf("Poping stack 1 \n");}
+                else if (LenSt2>0?StackLinklistPeek(stack2):-1 == input_stack){
+                    StackLinklistPop(stack2);
+                    LenSt2--;
+                    printf("Poping stack 2 \n");}
+                else printf("[fatal][fatal][[fatal][[fatal][fatal]\n");
+            }
+
+            }
+
+
+        }
 
 int main(int argl, char *argd[]) {
 
@@ -171,7 +320,8 @@ int main(int argl, char *argd[]) {
             if (!strcmp(argd[i], "StackLinklist")) { StackLinklist1(); }
             if (!strcmp(argd[i], "Queue1")) { Queue1(); }
             if (!strcmp(argd[i],"hastabel1")){hastabel1();}
-	    if (!strcmp(argd[i],"linklist1")){linklist1();}
+	        if (!strcmp(argd[i],"linklist1")){linklist1();}
+            if (!strcmp(argd[i],"List1")){list1();}
             printf("\n%s-----------END\n", argd[i]);
 
         }
@@ -187,8 +337,9 @@ int main(int argl, char *argd[]) {
 //        int a[]={1,2,3,4};
 //        int b[]={7,7,7,7};
 //        for(int i =0; i<100;i++){printf(" %d\n",a[i]);}
-linklist1();
-
+//linklist1();
+//list1();
+Q219();
     }
 
     printf("END -------------\n");
